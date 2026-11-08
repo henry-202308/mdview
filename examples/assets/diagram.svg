@@ -1,0 +1,60 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="440" viewBox="0 0 960 440" role="img" aria-labelledby="title desc">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#eef5ff"/>
+      <stop offset="1" stop-color="#f7f0ff"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#0969da"/>
+      <stop offset="1" stop-color="#7c3aed"/>
+    </linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="160%">
+      <feDropShadow dx="0" dy="10" stdDeviation="14" flood-color="#1f2937" flood-opacity="0.12"/>
+    </filter>
+  </defs>
+  <title id="title">mdview architecture</title>
+  <desc id="desc">Markdown file flows through Rust and pulldown-cmark into HTML, then renders in WebView2 with table of contents, highlighting and themes.</desc>
+  <rect width="960" height="440" rx="24" fill="url(#bg)"/>
+  <text x="48" y="58" font-family="Segoe UI, Microsoft YaHei, sans-serif" font-size="14" font-weight="700" letter-spacing="2" fill="#0969da">MDVIEW · ARCHITECTURE</text>
+  <text x="48" y="94" font-family="Segoe UI, Microsoft YaHei, sans-serif" font-size="28" font-weight="700" fill="#1f2937">Rust 渲染，WebView2 阅读</text>
+
+  <g filter="url(#shadow)">
+    <rect x="48" y="140" width="250" height="230" rx="18" fill="#ffffff" stroke="#e4e7ea"/>
+    <rect x="48" y="140" width="250" height="6" rx="3" fill="url(#accent)"/>
+    <text x="76" y="184" font-family="Segoe UI, Microsoft YaHei, sans-serif" font-size="12" fill="#7a828c" letter-spacing="1.5">INPUT</text>
+    <text x="76" y="218" font-family="Segoe UI, Microsoft YaHei, sans-serif" font-size="22" font-weight="700" fill="#1f2937">.md 文件</text>
+    <text x="76" y="252" font-family="Segoe UI, Microsoft YaHei, sans-serif" font-size="13" fill="#4b5563">Markdown + 前置元数据</text>
+    <text x="76" y="276" font-family="Segoe UI, Microsoft YaHei, sans-serif" font-size="13" fill="#4b5563">本地图片与附件</text>
+    <rect x="76" y="306" width="118" height="34" rx="17" fill="#eef5ff"/>
+    <text x="94" y="328" font-family="Segoe UI, Microsoft YaHei, sans-serif" font-size="12" fill="#0969da">UTF-8 / GB18030</text>
+  </g>
+
+  <path d="M310 255 C 350 255, 350 255, 388 255" stroke="#0969da" stroke-width="2" fill="none" stroke-dasharray="6 6"/>
+  <path d="M380 249 L 390 255 L 380 261" stroke="#0969da" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+
+  <g filter="url(#shadow)">
+    <rect x="400" y="140" width="220" height="230" rx="18" fill="#0d1117"/>
+    <text x="428" y="184" font-family="Consolas, monospace" font-size="12" fill="#8b949e" letter-spacing="1.5">RUST CORE</text>
+    <text x="428" y="218" font-family="Segoe UI, Microsoft YaHei, sans-serif" font-size="20" font-weight="700" fill="#e6edf3">pulldown-cmark</text>
+    <text x="428" y="250" font-family="Segoe UI, Microsoft YaHei, sans-serif" font-size="12.5" fill="#8b949e">GFM · 表格 · 脚注 · 任务</text>
+    <text x="428" y="274" font-family="Segoe UI, Microsoft YaHei, sans-serif" font-size="12.5" fill="#8b949e">图片协议 · 编码探测</text>
+    <text x="428" y="298" font-family="Segoe UI, Microsoft YaHei, sans-serif" font-size="12.5" fill="#8b949e">文件监听 · HTML 导出</text>
+    <rect x="428" y="320" width="150" height="28" rx="8" fill="#1f6feb" fill-opacity=".18"/>
+    <text x="440" y="339" font-family="Consolas, monospace" font-size="11" fill="#79c0ff">native · fast · small</text>
+  </g>
+
+  <path d="M630 255 C 670 255, 670 255, 708 255" stroke="#0969da" stroke-width="2" fill="none" stroke-dasharray="6 6"/>
+  <path d="M700 249 L 710 255 L 700 261" stroke="#0969da" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+
+  <g filter="url(#shadow)">
+    <rect x="720" y="140" width="192" height="230" rx="18" fill="#ffffff" stroke="#e4e7ea"/>
+    <rect x="720" y="140" width="192" height="6" rx="3" fill="url(#accent)"/>
+    <text x="746" y="184" font-family="Segoe UI, Microsoft YaHei, sans-serif" font-size="12" fill="#7a828c" letter-spacing="1.5">OUTPUT</text>
+    <text x="746" y="218" font-family="Segoe UI, Microsoft YaHei, sans-serif" font-size="22" font-weight="700" fill="#1f2937">WebView2</text>
+    <text x="746" y="250" font-family="Segoe UI, Microsoft YaHei, sans-serif" font-size="12.5" fill="#4b5563">目录 · 代码高亮</text>
+    <text x="746" y="274" font-family="Segoe UI, Microsoft YaHei, sans-serif" font-size="12.5" fill="#4b5563">深浅主题 · 配色</text>
+    <text x="746" y="298" font-family="Segoe UI, Microsoft YaHei, sans-serif" font-size="12.5" fill="#4b5563">KaTeX · Mermaid</text>
+  </g>
+
+  <text x="48" y="410" font-family="Segoe UI, Microsoft YaHei, sans-serif" font-size="12" fill="#7a828c">所有内容都在本机处理，不上传 Markdown 或图片。</text>
+</svg>

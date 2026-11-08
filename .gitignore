@@ -1,0 +1,36 @@
+# Rust 构建输出
+/target
+/.tmp
+/.cargo
+/.cargo-home
+/.toolchain
+/.toolchain-1.92
+/.rust-dist
+/.rust-dist-1.92
+/.rustup
+/.deps-src
+/.wv2-*
+
+# 本地运行数据：设置、最近文件、WebView2 用户数据、日志
+/.mdview-data
+/dist/
+/startup.log
+*.log
+
+# 构建产物与安装包（二进制走 GitHub Releases）
+*.exe
+*.pdb
+*.ilk
+/*.crate
+/*.tar.xz
+
+# 文档导出产物
+/examples/*.pdf
+/examples/*.html
+/examples/*.bak
+
+# 编辑器 / 系统文件
+/.vscode/
+/.idea/
+Thumbs.db
+.DS_Store

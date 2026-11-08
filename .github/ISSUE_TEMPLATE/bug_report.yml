@@ -1,0 +1,63 @@
+name: Bug 报告
+description: 报告可以复现的问题
+title: "[Bug] "
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        感谢反馈。提交前请先搜索已有 Issue，并尽量提供可复现的信息。
+  - type: input
+    id: version
+    attributes:
+      label: mdview 版本
+      description: 运行 `mdview --version`，或在「关于」面板查看
+      placeholder: 0.1.0
+    validations:
+      required: true
+  - type: input
+    id: windows
+    attributes:
+      label: Windows 版本
+      placeholder: Windows 11 23H2 (22631)
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: 复现步骤
+      placeholder: |
+        1. 打开 ...
+        2. 按下 ...
+        3. 看到 ...
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: 期望行为
+    validations:
+      required: true
+  - type: textarea
+    id: actual
+    attributes:
+      label: 实际行为
+    validations:
+      required: true
+  - type: textarea
+    id: logs
+    attributes:
+      label: 截图 / 日志
+      description: 图片可直接拖入；日志请以文本粘贴
+      render: text
+    validations:
+      required: false
+  - type: checkboxes
+    id: checks
+    attributes:
+      label: 确认
+      options:
+        - label: 我已搜索过现有 Issue，未发现重复
+          required: true
+        - label: 我已阅读 README 的「已知限制」
+          required: true

@@ -1,0 +1,46 @@
+name: Release
+
+on:
+  push:
+    tags:
+      - "v*"
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    name: Build & publish (Windows x64)
+    runs-on: windows-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Install Rust
+        uses: dtolnay/rust-toolchain@stable
+
+      - name: Cache cargo
+        uses: Swatinem/rust-cache@v2
+
+      - name: Test
+        run: cargo test --all
+
+      - name: Build release
+        run: cargo build --release
+
+      - name: Package
+        shell: pwsh
+        run: |
+          New-Item -ItemType Directory -Force -Path dist | Out-Null
+          Copy-Item target/release/mdview.exe dist/
+          Copy-Item README.md, LICENSE, THIRD_PARTY_NOTICES.md dist/
+          Compress-Archive -Path dist/* -DestinationPath mdview-windows-x64.zip -Force
+
+      - name: Publish GitHub Release
+        uses: softprops/action-gh-release@v2
+        with:
+          files: |
+            target/release/mdview.exe
+            mdview-windows-x64.zip
+          generate_release_notes: true
+          fail_on_unmatched_files: true

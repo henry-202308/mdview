@@ -1,0 +1,44 @@
+[package]
+name = "mdview"
+version = "0.1.0"
+edition = "2021"
+rust-version = "1.92"
+description = "A lightweight local Markdown reader and editor powered by Rust and the Windows WebView2 runtime"
+authors = ["henry-202308"]
+license = "MIT"
+repository = "https://github.com/henry-202308/mdview"
+homepage = "https://github.com/henry-202308/mdview"
+readme = "README.md"
+keywords = ["markdown", "viewer", "webview2", "windows", "editor"]
+categories = ["gui"]
+exclude = [".github/", "dist/"]
+
+[[bin]]
+name = "mdview"
+path = "src/main.rs"
+
+[dependencies]
+base64 = "0.22"
+encoding_rs = "0.8"
+open = "5"
+percent-encoding = "2"
+pulldown-cmark = { version = "0.12", default-features = false, features = ["html"] }
+rfd = "0.15"
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+tao = "0.30.8"
+wry = "0.48.1"
+
+[build-dependencies]
+winres = "0.1"
+
+[target.'cfg(windows)'.dependencies]
+webview2-com = "0.34"
+windows-core = "0.58"
+
+[profile.release]
+opt-level = "s"
+lto = true
+codegen-units = 1
+panic = "abort"
+strip = true
